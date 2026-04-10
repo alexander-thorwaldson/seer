@@ -1,0 +1,39 @@
+{
+  "name": "@seerist/seer-sdk",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./.dist/index.js",
+      "types": "./.dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./.dist/*.js",
+      "types": "./.dist/*.d.ts"
+    }
+  },
+  "scripts": {
+    "generate": "openapi-typescript https://scry.platform-dev.seerist.com/openapi -o src/generated/api.d.ts",
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "clean": "rm -rf .dist",
+    "lint": "eslint src/",
+    "lintfix": "eslint src/ --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "openapi-fetch": "catalog:"
+  },
+  "devDependencies": {
+    "openapi-typescript": "catalog:",
+    "typescript": "catalog:",
+    "unbuild": "catalog:",
+    "vitest": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "eslint": "catalog:",
+    "@eslint/js": "catalog:",
+    "typescript-eslint": "catalog:",
+    "@types/node": "catalog:"
+  }
+}

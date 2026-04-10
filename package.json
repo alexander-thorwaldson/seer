@@ -1,0 +1,39 @@
+{
+  "name": "@seerist/seer-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r --parallel dev",
+    "lint": "pnpm -r --parallel lint",
+    "lintfix": "pnpm -r --parallel lintfix",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r clean",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "sdk:generate": "pnpm --filter @seerist/seer-sdk generate",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "@eslint/js": "catalog:",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100
+  },
+  "lint-staged": {
+    "*.{ts,js,json,md,yaml,yml}": [
+      "prettier --write"
+    ]
+  }
+}
