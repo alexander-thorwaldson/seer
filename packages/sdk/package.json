@@ -23,7 +23,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "openapi-fetch": "catalog:"
+    "openapi-fetch": "catalog:",
+    "openapi-typescript-helpers": "^0.0.15"
   },
   "devDependencies": {
     "openapi-typescript": "catalog:",

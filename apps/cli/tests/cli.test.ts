@@ -17,7 +17,8 @@ describe('seer cli', () => {
   it('prints help with --help', async () => {
     const { stdout } = await exec('npx', ['tsx', cli, '--help'])
     expect(stdout).toContain('seer')
-    expect(stdout).toContain('Commands')
+    expect(stdout).toContain('Auth:')
+    expect(stdout).toContain('Tools:')
   })
 
   it('exits with error on unknown command', async () => {

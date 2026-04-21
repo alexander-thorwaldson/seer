@@ -15,18 +15,20 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "catalog:",
     "@seerist/seer-sdk": "workspace:*",
-    "@modelcontextprotocol/sdk": "catalog:"
+    "@seerist/validators": "^0.409.0",
+    "zod": "catalog:"
   },
   "devDependencies": {
-    "typescript": "catalog:",
-    "unbuild": "catalog:",
-    "vitest": "catalog:",
+    "@eslint/js": "catalog:",
+    "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "eslint": "catalog:",
-    "@eslint/js": "catalog:",
-    "typescript-eslint": "catalog:",
     "tsx": "^4.19.0",
-    "@types/node": "catalog:"
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "unbuild": "catalog:",
+    "vitest": "catalog:"
   }
 }

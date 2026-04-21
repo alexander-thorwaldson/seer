@@ -1,16 +1,16 @@
 import { createRawClient, type SeerClientOptions } from './client.js'
+import { createContentDomain } from './domains/content.js'
 
 /**
  * Ergonomic wrapper around the generated OpenAPI client.
  *
- * Each domain (risk, content, assets, etc.) gets a namespace
- * that maps to friendly method signatures. This is the primary
- * interface for both the CLI and MCP server.
+ * Each domain gets a namespace with friendly method signatures.
+ * This is the primary interface for both the CLI and MCP server.
  *
  * Example:
  *   const seer = createSeerClient({ token: '...' })
- *   const ratings = await seer.risk.ratings('US')
- *   const results = await seer.content.search('election')
+ *   const results = await seer.content.search({ query: 'election' })
+ *   const item = await seer.content.get('some-id')
  */
 export function createSeerClient(options: SeerClientOptions) {
   const client = createRawClient(options)
@@ -19,16 +19,13 @@ export function createSeerClient(options: SeerClientOptions) {
     /** Raw openapi-fetch client for escape-hatch access */
     raw: client,
 
-    // --- Domain namespaces (stubs — flesh out as API endpoints are prioritized) ---
+    content: createContentDomain(client),
+
+    // --- Stubs — add domains as endpoints are prioritized ---
 
     risk: {
       // TODO: ratings(location, options?)
       // TODO: pulse(location, options?)
-    },
-
-    content: {
-      // TODO: search(query, filters?)
-      // TODO: get(id)
     },
 
     assets: {
